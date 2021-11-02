@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: burger service
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+server:
+  port: 8080
+logging:
+  level:
+    root: debug
+    com:
+      example:
+        burgerservice: debug
+

@@ -12,4 +12,6 @@ public interface BurgerRepository extends CrudRepository<Burger, Long> {
     Object findAllById(Long id);
 
     List<Burger> findBurgersByIngredientsIn(List<Ingredient> ingredients);
+
+    Iterable<Burger> findAll();
 }

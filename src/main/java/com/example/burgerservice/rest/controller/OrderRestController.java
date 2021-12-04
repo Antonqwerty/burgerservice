@@ -23,6 +23,7 @@ public class OrderRestController {
     //responseEntity - обертка, которая позволяет кастомизировать ответ.
     public ResponseEntity<BurgerOrderDto> getOrder(@PathVariable(name = "orderId") Long orderId) {
         return ResponseEntity.ok(orderService.getOrder(orderId));
+        //возвращаем 200 (ок) и говорим верни заказ
     }
 
     public BurgerOrderDto saveOrder() {

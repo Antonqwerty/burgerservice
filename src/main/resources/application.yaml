@@ -18,8 +18,8 @@ server:
   port: 8080
 logging:
   level:
-    root: debug
+    root: INFO
     com:
       example:
-        burgerservice: debug
+        burgerservice: DEBUG
 

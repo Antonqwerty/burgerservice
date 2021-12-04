@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "INGREDIENT")
 @Getter
+@Data
 public class Ingredient {
     @Column(name = "NAME")
     private String name;
@@ -35,7 +36,7 @@ public class Ingredient {
         this.ingredientType = ingredientType;
     }
 
-    public void setName(String name) {
+/*    public void setName(String name) {
 
         this.name = name;
     }
@@ -51,5 +52,5 @@ public class Ingredient {
 
     public String getId() {
         return id;
-    }
+    }*/
 }

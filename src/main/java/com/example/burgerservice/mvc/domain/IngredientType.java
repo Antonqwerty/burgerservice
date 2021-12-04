@@ -1,5 +1,6 @@
 package com.example.burgerservice.mvc.domain;
 
+import lombok.Data;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "INGREDIENT_TYPE")
 @Getter
+@Data
 public class IngredientType {
     @Id
     @Column(name = "ID")

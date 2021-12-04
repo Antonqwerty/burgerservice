@@ -20,8 +20,13 @@ public class OrderRestController {
     }
 
     @GetMapping("/{orderId}")
+    //responseEntity - обертка, которая позволяет кастомизировать ответ.
     public ResponseEntity<BurgerOrderDto> getOrder(@PathVariable(name = "orderId") Long orderId) {
         return ResponseEntity.ok(orderService.getOrder(orderId));
+    }
+
+    public BurgerOrderDto saveOrder() {
+        return null;
     }
 
 }

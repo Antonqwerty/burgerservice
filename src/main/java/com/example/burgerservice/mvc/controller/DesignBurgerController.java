@@ -7,7 +7,6 @@ import com.example.burgerservice.mvc.domain.IngredientType;
 import com.example.burgerservice.mvc.service.BurgerService;
 import com.example.burgerservice.mvc.service.IngredientService;
 import com.example.burgerservice.mvc.service.IngredientTypeService;
-import com.example.burgerservice.mvc.service.impl.BurgerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.PrePersist;
 import javax.validation.Valid;
-import java.lang.reflect.Array;
-import java.time.LocalDateTime;
 import java.util.*;
 
 @Controller

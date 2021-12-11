@@ -26,8 +26,9 @@ public class OrderRestController {
         //возвращаем 200 (ок) и говорим верни заказ
     }
 
-    public BurgerOrderDto saveOrder() {
-        return null;
+    @GetMapping("/last")
+    public BurgerOrderDto getLatestOrder() {
+        return orderService.getLastOrder();
     }
 
 }

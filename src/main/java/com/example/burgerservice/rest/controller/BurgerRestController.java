@@ -37,4 +37,14 @@ public class BurgerRestController {
         log.info("get request");
         return burgerListWrapperDto;
     }
+
+    @PutMapping
+    public BurgerDto updateBurger(@RequestBody BurgerDto burgerDto) {
+        return burgerService.updateBurger(burgerDto);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteBurger(@PathVariable("id") Long id) {
+        burgerService.deleteBurger(id);
+    }
 }

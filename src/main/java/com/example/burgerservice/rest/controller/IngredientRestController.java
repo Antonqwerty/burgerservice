@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/ingredient")
+@RequestMapping(path = "/api/ingredient")
 public class IngredientRestController {
 
     private final IngredientService ingredientService;
@@ -36,7 +36,7 @@ public class IngredientRestController {
     }
 
     @PostMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_XML_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public IngredientDto saveIngredient(@RequestBody IngredientDto ingredient) {
         log.info("saving new ingredient type");

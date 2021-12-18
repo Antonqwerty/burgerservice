@@ -45,4 +45,19 @@ public class BurgerServiceImpl implements BurgerService {
         return allBurgersDto;
     }
 
+    @Override
+    public BurgerDto updateBurger(BurgerDto burgerDto) {
+        if (burgerRepository.findById(burgerDto.getId()).isPresent()) {
+            Burger burgerForUpdate = burgerMapper.burgerDto2Dao(burgerDto);
+            Burger updatedBurger = burgerRepository.save(burgerForUpdate);
+            return burgerMapper.burgerDao2Dto(updatedBurger);
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteBurger(Long id) {
+        burgerRepository.deleteById(id);
+    }
+
 }

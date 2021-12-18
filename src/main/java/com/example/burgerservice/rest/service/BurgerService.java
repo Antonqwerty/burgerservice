@@ -8,4 +8,8 @@ public interface BurgerService {
     BurgerDto saveBurger(BurgerDto burgerDto);
 
     Iterable<BurgerDto> findAll();
+
+    BurgerDto updateBurger(BurgerDto burgerDto);
+
+    void deleteBurger(Long id);
 }

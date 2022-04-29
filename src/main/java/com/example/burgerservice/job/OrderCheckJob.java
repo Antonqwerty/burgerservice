@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-@Component
+//@Component
 @Slf4j
 public class OrderCheckJob {
     private final BurgerOrderRepository burgerOrderRepository;

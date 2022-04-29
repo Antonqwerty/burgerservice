@@ -1,17 +1,19 @@
 package com.example.burgerservice.rest.service.impl;
 
+import com.example.burgerservice.constant.CacheConstants;
 import com.example.burgerservice.mvc.domain.Burger;
 import com.example.burgerservice.mvc.repository.BurgerRepository;
 import com.example.burgerservice.rest.dto.BurgerDto;
 import com.example.burgerservice.rest.mapper.BurgerMapper;
 import com.example.burgerservice.rest.service.BurgerService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("BurgerServiceImpl")
+@Service
 @Slf4j
 public class BurgerServiceImpl implements BurgerService {
 
@@ -24,6 +26,9 @@ public class BurgerServiceImpl implements BurgerService {
     }
 
     @Override
+    @Cacheable(cacheNames = CacheConstants.BURGER, key = "#id", unless = "#result==null")
+    //unless - кэшируем пока не будет возвращен null
+    //sync - сначала в кэш потом возвращаем
     public BurgerDto getBurger(Long id) {
         return burgerMapper.burgerDao2Dto(burgerRepository.findById(id).orElseThrow());
     }
@@ -35,6 +40,7 @@ public class BurgerServiceImpl implements BurgerService {
     }
 
     @Override
+    @Cacheable(cacheNames = CacheConstants.BURGERS)
     public Iterable<BurgerDto> findAll() {
         Iterable<Burger> allBurgersDao = burgerRepository.findAll();
         List<BurgerDto> allBurgersDto = new ArrayList<>();

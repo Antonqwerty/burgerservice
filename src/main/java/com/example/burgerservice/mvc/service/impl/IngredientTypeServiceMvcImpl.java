@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class IngredientTypeServiceImpl implements IngredientTypeService {
+public class IngredientTypeServiceMvcImpl implements IngredientTypeService {
     private final IngredientTypeRepository ingredientTypeRepository;
     @Autowired
-    public IngredientTypeServiceImpl (IngredientTypeRepository ingredientTypeRepository) {
+    public IngredientTypeServiceMvcImpl(IngredientTypeRepository ingredientTypeRepository) {
         this.ingredientTypeRepository = ingredientTypeRepository;
 
     }

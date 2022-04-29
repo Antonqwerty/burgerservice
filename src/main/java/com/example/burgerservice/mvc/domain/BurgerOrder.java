@@ -58,7 +58,11 @@ public class BurgerOrder {
     @Column(name = "CREATED_AT")
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "burgerOrder")
+    @ManyToOne
+    @JoinColumn(name = "STATUS_ID",referencedColumnName = "ID")
+    private OrderStatus status;
+
+    @OneToMany(mappedBy = "burgerOrder",cascade = CascadeType.ALL)
     private List<Burger> burgers = new ArrayList<>();
 
 

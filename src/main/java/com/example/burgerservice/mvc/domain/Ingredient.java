@@ -6,12 +6,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Data
-//@RequiredArgsConstructor
 @Entity
 @Table(name = "INGREDIENT")
 @Getter
-@Data
+@Setter
 public class Ingredient {
     @Column(name = "NAME")
     private String name;
@@ -36,21 +34,12 @@ public class Ingredient {
         this.ingredientType = ingredientType;
     }
 
-/*    public void setName(String name) {
 
-        this.name = name;
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public String getId() {
-        return id;
-    }*/
 }

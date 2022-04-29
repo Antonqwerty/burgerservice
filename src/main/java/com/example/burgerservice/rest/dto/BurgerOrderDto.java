@@ -28,4 +28,6 @@ public class BurgerOrderDto {
     private String ccCVV;
 
     private LocalDateTime createdAt;
+
+    private String status;
 }

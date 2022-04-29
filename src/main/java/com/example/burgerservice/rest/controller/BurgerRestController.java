@@ -1,15 +1,14 @@
 package com.example.burgerservice.rest.controller;
 
-import com.example.burgerservice.mvc.domain.Burger;
 import com.example.burgerservice.rest.dto.BurgerDto;
+import com.example.burgerservice.rest.dto.BurgerListWrapperDto;
 import com.example.burgerservice.rest.service.BurgerService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-@ResponseBody
+@RestController
 @RequestMapping("/api/burger")
 public class BurgerRestController {
+
     private final BurgerService burgerService;
 
     public BurgerRestController(BurgerService burgerService) {
@@ -24,5 +23,22 @@ public class BurgerRestController {
     @PostMapping
     public BurgerDto saveBurger(@RequestBody BurgerDto burgerDto) {
         return burgerService.saveBurger(burgerDto);
+    }
+
+    @GetMapping("/all")
+    public BurgerListWrapperDto getAllBurgers() {
+        BurgerListWrapperDto burgerListWrapperDto = new BurgerListWrapperDto();
+        burgerListWrapperDto.setBurgers(burgerService.findAll());
+        return burgerListWrapperDto;
+    }
+
+    @PutMapping
+    public BurgerDto updateBurger(@RequestBody BurgerDto burgerDto) {
+        return burgerService.updateBurger(burgerDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBurger(@PathVariable("id") Long id) {
+        burgerService.deleteBurger(id);
     }
 }

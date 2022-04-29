@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 public class IngredientTypeMapper {
     private final IngredientTypeRepository ingredientTypeRepository;
 
-    @Autowired
     public IngredientTypeMapper(IngredientTypeRepository ingredientTypeRepository) {
         this.ingredientTypeRepository = ingredientTypeRepository;
     }
